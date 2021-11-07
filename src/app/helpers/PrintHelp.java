@@ -16,7 +16,7 @@ public class PrintHelp {
             values = enums[inputUser()].name();
         } catch (Exception e) {
             DialogText.invalidOption();
-            printOptions(enums, text);
+            values = printOptions(enums, text);
         }
         return values;
     }

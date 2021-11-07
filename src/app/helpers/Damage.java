@@ -26,7 +26,7 @@ public class Damage {
         Map<String, String> damageMessage = new HashMap<>();
 
         int randomNum = rand.nextInt((arrayDmg[1] - arrayDmg[0]) + 1) + arrayDmg[0];
-        randomDamage = randomNum * damageDifficulty;
+        randomDamage = (randomNum * damageDifficulty) / 10;
         life = life - randomDamage;
 
         if (randomDamage > 0) {

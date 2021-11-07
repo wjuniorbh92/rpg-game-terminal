@@ -34,7 +34,7 @@ public class RoadMap {
     }
 
     public static void sequenceAto1() {
-        System.out.println("Inspirado pelo motivo que te trouxe até aqui, você sente seu coração ardendo em chamas, suas " +
+        System.out.println("\nInspirado pelo motivo que te trouxe até aqui, você sente seu coração ardendo em chamas, suas " +
                 "\nmãos formigarem em volta da sua arma. Você a segura com firmeza. Seu foco está renovado. " +
                 "\nVocê avança pelo portal.\n" +
                 "\nA escuridão te envolve. Uma iluminação muito fraca entra pelo portal às suas costas. À sua " +

@@ -34,7 +34,7 @@ public class DialogText {
         System.out.println("Seja bem vindo(a) à BATALHA FINAL!!!!!");
         difficultyChoose();
         genderChoose();
-        //nameChoose();
+        nameChoose();
         classChoose();
         weaponChoose();
         clearScreen();
@@ -97,34 +97,35 @@ public class DialogText {
     }
 
     public void GameSequence() {
-//        RoadMap.Ato1();
+        RoadMap.Ato1();
         Motivation motivation = Motivation.valueOf(PrintHelp.printOptions(Motivation.values(), "Escolha a motivação que te trouxe até aqui"));
-//        clearScreen();
-//        if (motivation.getMotivation() == 0) {
-//            RoadMap.Vinganca();
-//        }
-//        if (motivation.getMotivation() == 1) {
-//            RoadMap.Gloria();
-//        }
-//        RoadMap.sequenceAto1();
-//        PathChoose path = PathChoose.valueOf(PrintHelp.printOptions(PathChoose.values(), "Escolha Aventureiro!!!!"));
-//        if (path.getValue() == 1 )
-//        {
-//            clearScreen();
-//            System.out.println(path.getText());
-//            System.exit(0);
-//        }
-//        clearScreen();
-//        System.out.println(path.getText());
-//        RoadMap.sequecePathChose();
-        //Locomote chooseLocomote = Locomote.valueOf(PrintHelp.printOptions(Locomote.values(), "Escolha de que forma você quer avancçar!!"));
-        //System.out.println(chooseLocomote.getText());
+        clearScreen();
+        if (motivation.getMotivation() == 0) {
+            RoadMap.Vinganca();
+        }
+        if (motivation.getMotivation() == 1) {
+            RoadMap.Gloria();
+        }
+        RoadMap.sequenceAto1();
+        PathChoose path = PathChoose.valueOf(PrintHelp.printOptions(PathChoose.values(), "Escolha Aventureiro!!!!"));
+        if (path.getValue() == 1 )
+        {
+            clearScreen();
+            System.out.println(path.getText());
+            System.exit(0);
+        }
+        clearScreen();
+        System.out.println(path.getText());
+        RoadMap.sequecePathChoose();
+
+        Locomote chooseLocomote = Locomote.valueOf(PrintHelp.printOptions(Locomote.values(), "Escolha de que forma você quer avancçar!!"));
+        System.out.println(chooseLocomote.getText());
 
         /*  Sistema de dano, da para melhorar!!!!! */
-        //diceResult = damage.diceRoll(chooseLocomote.getDamage(), difficulty.getDamage(), life);
-        //life = Double.valueOf(diceResult.get("life"));
-        //System.out.println(diceResult.get(("message")));
-        //System.out.println("\nSEU LIFE AGORA ESTA EM "+life+"%");
+        diceResult = damage.diceRoll(chooseLocomote.getDamage(), difficulty.getDamage(), classGen.getLife());
+        classGen.setLife(Double.valueOf(diceResult.get("life")));
+        System.out.println(diceResult.get(("message")));
+        System.out.println("\nSEU LIFE AGORA ESTA EM "+classGen.getLife()+"%");
 
         //RoadMap.squareRoom();
 
@@ -133,40 +134,40 @@ public class DialogText {
 
         RoadMap.enemyRoom();
 
-//        switch (String.valueOf(door)){
-//            case "Direita":
-//                clearScreen();
-//                FightLoop.Fight(weapon, difficulty.getDamage(), Enemy.Armeiro, classGen);
-//                if ((classGen.getLife() <= 0)) {
-//                    deathPlayer(genderPlayer, motivation);
-//                }
-//                door.getWinBattle();
-//                ArmChoose armChoose = ArmChoose.valueOf(PrintHelp.printOptions(ArmChoose.values() , "Escolha se você deseja se armar ou não"));
-//                armChoose.getArmChoose();
-//                if(armChoose.getValue()){
-//                    classGen.setDefense();
-//                }
-//                door.finalPath();
-//                break;
-//
-//            case "Esquerda":
-//                clearScreen();
-//                FightLoop.Fight(weapon, difficulty.getDamage(), Enemy.Alquimista, classGen);
-//                if ((classGen.getLife() <= 0)) {
-//                    deathPlayer(genderPlayer, motivation);
-//                }
-//                door.getWinBattle();
-//                DrinkChoose drinkChoose = DrinkChoose.valueOf(PrintHelp.printOptions(DrinkChoose.values() , "Escolha se você deseja beber ou não:"));
-//                drinkChoose.getDrinkChoose();
-//                if(drinkChoose.getValue()){
-//                    classGen.setLife(10.0);
-//                }
-//                door.finalPath();
-//                break;
-//
-//            default:
-//                System.exit(0);
-//        }
+        switch (String.valueOf(door)){
+            case "Direita":
+                clearScreen();
+                FightLoop.Fight(weapon, difficulty.getDamage(), Enemy.Armeiro, classGen);
+                if ((classGen.getLife() <= 0)) {
+                    deathPlayer(genderPlayer, motivation);
+                }
+                door.getWinBattle();
+                ArmChoose armChoose = ArmChoose.valueOf(PrintHelp.printOptions(ArmChoose.values() , "Escolha se você deseja se armar ou não"));
+                armChoose.getArmChoose();
+                if(armChoose.getValue()){
+                    classGen.setDefense();
+                }
+                door.finalPath();
+                break;
+
+            case "Esquerda":
+                clearScreen();
+                FightLoop.Fight(weapon, difficulty.getDamage(), Enemy.Alquimista, classGen);
+                if ((classGen.getLife() <= 0)) {
+                    deathPlayer(genderPlayer, motivation);
+                }
+                door.getWinBattle();
+                DrinkChoose drinkChoose = DrinkChoose.valueOf(PrintHelp.printOptions(DrinkChoose.values() , "Escolha se você deseja beber ou não:"));
+                drinkChoose.getDrinkChoose();
+                if(drinkChoose.getValue()){
+                    classGen.setLife(10.0);
+                }
+                door.finalPath();
+                break;
+
+            default:
+                System.exit(0);
+        }
 
         clearScreen();
         RoadMap.enemyRoomPart2();
